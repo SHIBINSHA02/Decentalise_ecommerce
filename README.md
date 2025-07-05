@@ -1,3 +1,4 @@
+<!-- README.md -->
 src/
 ├── app/                   # Next.js App Router root
 ├── components/            # Reusable UI components
