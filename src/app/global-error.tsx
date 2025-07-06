@@ -1,36 +1,28 @@
-// src/app/global-error.tsx
-'use client';
-
-import { useEffect } from 'react';
+"use client"
 
 export default function GlobalError({
   error,
   reset,
 }: {
-  error: Error & { digest?: string };
-  reset: () => void;
+  error: Error & { digest?: string }
+  reset: () => void
 }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error('Global error:', error);
-  }, [error]);
-
   return (
     <html>
-      <body className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600">Something went wrong!</h1>
-          <p className="mt-2 text-gray-600">
-            An unexpected error occurred. Please try again.
-          </p>
-          <button
-            onClick={() => reset()}
-            className="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-          >
-            Try Again
-          </button>
+      <body>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-red-600 mb-4">Something went wrong!</h1>
+            <p className="text-gray-600 mb-8">An unexpected error occurred.</p>
+            <button
+              onClick={() => reset()}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Try again
+            </button>
+          </div>
         </div>
       </body>
     </html>
-  );
+  )
 }
