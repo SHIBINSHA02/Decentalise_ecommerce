@@ -1,21 +1,16 @@
 // src/app/layout.tsx
-import type { Metadata } from 'next';
-import './globals.css';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
-import { CartProvider } from '../context/CartContext';
-import { AuthProvider } from '../context/AuthContext';
+import '@/styles/globals.css';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { AuthProvider } from '@/context/AuthContext';
+import { CartProvider } from '@/context/CartContext';
 
-export const metadata: Metadata = {
-  title: 'Your E-Commerce App',
-  description: 'A modern e-commerce platform',
+export const metadata = {
+  title: 'My Ecommerce App',
+  description: 'An ecommerce platform built with Next.js',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
