@@ -1,33 +1,42 @@
-// src/components/cart/CartSummary.tsx
-'use client';
+"use client"
 
-import { useCart } from '@/context/CartContext';
-import { getProducts } from '@/services/productService';
-import { useState, useEffect } from 'react';
+import { useCart } from "@/hooks/useCart"
+import { Button } from "@/components/ui/Button"
+import Link from "next/link"
 
 export function CartSummary() {
-  const { cart } = useCart();
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    const calculateTotal = async () => {
-      const products = await getProducts();
-      const totalPrice = cart.reduce((sum, item) => {
-        const product = products.find((p) => p.id === item.productId);
-        return product ? sum + product.price * item.quantity : sum;
-      }, 0);
-      setTotal(totalPrice);
-    };
-    calculateTotal();
-  }, [cart]);
+  const { total, itemCount } = useCart()
+  const shipping = 10.0
+  const tax = total * 0.08
 
   return (
-    <div className="border p-4">
-      <h2 className="text-xl font-bold">Cart Summary</h2>
-      <p>Total: ${total.toFixed(2)}</p>
-      <button className="bg-green-500 text-white p-2 mt-4 w-full">
-        Proceed to Checkout
-      </button>
+    <div className="bg-white p-6 rounded-lg shadow-sm">
+      <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
+
+      <div className="space-y-2 mb-4">
+        <div className="flex justify-between">
+          <span>Subtotal ({itemCount} items)</span>
+          <span>${total.toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between">
+          <span>Shipping</span>
+          <span>${shipping.toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between">
+          <span>Tax</span>
+          <span>${tax.toFixed(2)}</span>
+        </div>
+        <div className="border-t pt-2">
+          <div className="flex justify-between font-semibold text-lg">
+            <span>Total</span>
+            <span>${(total + shipping + tax).toFixed(2)}</span>
+          </div>
+        </div>
+      </div>
+
+      <Link href="/checkout">
+        <Button className="w-full">Proceed to Checkout</Button>
+      </Link>
     </div>
-  );
+  )
 }
