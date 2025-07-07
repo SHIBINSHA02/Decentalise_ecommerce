@@ -1,3 +1,4 @@
+// src/app/page.tsx
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { ProductCard } from "@/components/product/ProductCard"

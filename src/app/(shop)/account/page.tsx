@@ -1,3 +1,4 @@
+// src/app/(shop)/account/page.tsx
 "use client"
 
 import { useAuth } from "@/hooks/useAuth"

@@ -1,3 +1,4 @@
+// src/components/cart/CartItem.tsx
 "use client"
 
 import type { CartItem as CartItemType } from "@/types/cart"
