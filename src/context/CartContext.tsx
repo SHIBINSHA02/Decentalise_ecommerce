@@ -11,7 +11,7 @@ interface CartContextType extends CartState {
   clearCart: () => void
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined)
+export const CartContext = createContext<CartContextType | undefined>(undefined) // Export the context
 
 type CartAction =
   | { type: "ADD_ITEM"; payload: { product: Product; quantity: number } }
