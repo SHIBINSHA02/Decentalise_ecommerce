@@ -1,3 +1,4 @@
+<!-- README.md -->
 # E-Commerce Next.js Application
 
 A modern, full-featured e-commerce application built with Next.js 14, TypeScript, and Tailwind CSS. This project implements a scalable architecture with proper separation of concerns, making it easy to maintain and extend.

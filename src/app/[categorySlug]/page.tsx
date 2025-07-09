@@ -1,3 +1,4 @@
+// src/app/[categorySlug]/page.tsx
 import { getProductsByCategory, getCategoryBySlug } from "@/services/productService"
 import { ProductCard } from "@/components/product/ProductCard"
 import { notFound } from "next/navigation"

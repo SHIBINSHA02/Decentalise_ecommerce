@@ -1,3 +1,4 @@
+// src/app/[categorySlug]/error.tsx
 "use client"
 
 export default function Error({
